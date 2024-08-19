@@ -20,33 +20,7 @@ public class UserController {
 
     private final UserServiceImpl userService;
     private final UserRepository repo;
-/*
-    @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody User user) {
-        Optional<User> foundUser= repo.findByUsernameOrEmail(user.getUsername(), user.getEmail());
-        if(foundUser.isPresent()) {
-            userService.SaveUser(user);
-            return ResponseEntity.ok("User registered successfully");
-        }
-        else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
 
-
-    }
-
-    @PostMapping("/login")
-    public ResponseEntity<Object> login(@RequestBody User user) {
-        Optional<User> foundUser= repo.findByEmailAndPassword(user.getEmail(), user.getPassword());
-        if(foundUser.isPresent()) {
-            return ResponseEntity.ok("User logged in successfully");
-        }
-        else{
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email or Password is incorrect");
-        }
-    }
-
- */
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
         System.out.println("Received user: " + user);

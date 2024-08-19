@@ -3,7 +3,6 @@ package com.Men_Rotseiha.Registration.service.imp;
 import com.Men_Rotseiha.Registration.entity.User;
 import com.Men_Rotseiha.Registration.repository.UserRepository;
 import com.Men_Rotseiha.Registration.service.UserService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
