@@ -7,17 +7,15 @@ import com.Men_Rotseiha.Registration.service.imp.UserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/v1/api")
+@RequestMapping//("/v1/api")
 @AllArgsConstructor
+@CrossOrigin
 public class UserController {
 
     private final UserServiceImpl userService;
@@ -51,6 +49,7 @@ public class UserController {
  */
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
+        System.out.println("Received user: " + user);
         boolean isRegistered = userService.registerUser(user);
         if (isRegistered) {
             return ResponseEntity.ok("User registered successfully");
@@ -61,6 +60,7 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user) {
+
         boolean isAuthenticated = userService.authenticateUser(user);
         if (isAuthenticated) {
             return ResponseEntity.ok("User logged in successfully");
